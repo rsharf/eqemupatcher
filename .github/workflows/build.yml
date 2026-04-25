@@ -16,6 +16,9 @@ env:
   PATCHER_URL: 'https://github.com/rsharf/eqemupatcher/releases/latest/download/'
   STORAGE_URL: 'https://github.com/rsharf/MentalBreak/releases/latest/download/rof/'
 
+permissions:
+  contents: write
+
 jobs:
   build:
     runs-on: windows-latest
