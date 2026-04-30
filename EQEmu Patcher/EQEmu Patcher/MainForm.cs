@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
@@ -212,7 +212,7 @@ namespace EQEmu_Patcher
             string response = await DownloadFile(cts, webUrl, "filelist.yml");
             if (response != "")
             {
-                webUrl = $"{filelistUrl}/filelist_{ suffix}.yml";
+                webUrl = $"{filelistUrl}filelist_{ suffix}.yml";
                 response = await DownloadFile(cts, webUrl, "filelist.yml");
                 if (response != "")
                 {
