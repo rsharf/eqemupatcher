@@ -12,8 +12,8 @@ env:
   BUILD_CONFIGURATION: Release
   SERVER_NAME: 'MentalBreak'
   FILE_NAME: 'MentalBreak'
-  FILELIST_URL: 'https://github.com/rsharf/MentalBreak/releases/latest/download/'
-  PATCHER_URL: 'https://github.com/rsharf/eqemupatcher/releases/latest/download/'
+  FILELIST_URL: 'https://github.com/rsharf/eqemupatcher/releases/latest/download'
+  PATCHER_URL: 'https://github.com/rsharf/eqemupatcher/releases/latest/download'
   STORAGE_URL: 'https://github.com/rsharf/MentalBreak/releases/latest/download/rof/'
 
 permissions:
