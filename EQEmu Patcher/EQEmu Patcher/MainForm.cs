@@ -513,7 +513,15 @@ namespace EQEmu_Patcher
 
                 StatusLibrary.SetProgress((int)(currentBytes / totalBytes * 10000));
 
-                var path = Path.GetDirectoryName(Application.ExecutablePath)+"\\"+entry.name.Replace("/", "\\");
+                // GitHub Release assets can't have slashes, so subdirectory files use underscores
+                // (e.g. SpellIcons_0.png). Convert back to local path with directory separator.
+                string localName = entry.name;
+                if (localName.StartsWith("SpellIcons_"))
+                {
+                    localName = "SpellIcons/" + localName.Substring("SpellIcons_".Length);
+                }
+
+                var path = Path.GetDirectoryName(Application.ExecutablePath)+"\\"+localName.Replace("/", "\\");
                 if (!UtilityLibrary.IsPathChild(path))
                 {
                     StatusLibrary.Log("Path " + path + " might be outside of your Everquest directory. Skipping download to this location.");
@@ -534,7 +542,7 @@ namespace EQEmu_Patcher
 
                 string url = filelist.downloadprefix + entry.name.Replace("\\", "/");
 
-                string resp = await DownloadFile(cts, url, entry.name);
+                string resp = await DownloadFile(cts, url, localName);
                 if (resp != "")
                 {
                     if (resp == "404")
